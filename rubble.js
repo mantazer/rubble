@@ -10,7 +10,9 @@ var post_array = new Array();
 
 ajax({ url: reddit_url, type: 'json'}, function(json) {
 	
-	simply.body(data.children.length);
+	var post_array_length = Object.keys(json.data.children.length);
+
+	simply.body(data.children.length());
 
 });
 
