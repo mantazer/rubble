@@ -33,23 +33,26 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 var count = parseInt(localStorage.getItem('count')) || 0;
 
 simply.on('singleClick', function(e) {
-	if (e.button === 'down') {
+	
+	if (e.button === 'select') {
+
+	}
+	else if (e.button === 'back') {
+
+	}
+	else if (e.button === 'down') {
 		count++;
-		localStorage.setItem('count', count);
 		simply.body(title_array[count]);
 		simply.subtitle(author_array[count]);
 	}
 	else if (e.button === 'up') {
 		count--;
-		localStorage.setItem('count', count);
 		simply.body(title_array[count]);
 		simply.subtitle(author_array[count]);
 	}
 	else if (e.button === 'select') {
 
 	}
-	else if (e.button == 'back') {
-		
-	}
+	localStorage.setItem('count', count);
 	
 });
