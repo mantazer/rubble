@@ -8,8 +8,11 @@ var url_array = new Array();
 var first_paragraph_array = new Array();
 
 getRedditLinks(function(links) {
-	simply.body(links[0].title);
-	simply.subtitle(links[0].author);
+	localStorage.setItem('current_page', 0);
+	localStorage.setItem('links', links);
+	renderLinkTitle(0);
+
+	simply.on('singleClick', renderInterface);
 });
 
 
@@ -73,6 +76,19 @@ function getRedditLinks(cb) {
 
 		cb(link_list);
 	});
+}
+
+function renderLinkTitle(link_number) {
+	var links = localStorage.getItem('links')
+	simply.body(links[link_number].title);
+	simply.subtitle(links[link_number].author);
+}
+
+function renderInterface() {
+	if (e.button === 'down') {
+	} else if (e.button === 'up') {
+	} else if (e.button === 'select') {
+	}
 }
 
 function grabArticle(article) {
