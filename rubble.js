@@ -8,11 +8,12 @@ var reddit_url = 'http://www.reddit.com/.json';
 
 var post_array = new Array(); 
 
-ajax({ url: reddit_url, type: 'json'}, function(json) {
+ajax({ url: reddit_url, type: 'json'}, function(data) {
 	
-	var post_array_length = Object.keys(json.data.children.length);
+	var json = data;
+	var num_posts = json.data.children.length;
 
-	simply.body(post_array_length);
+	simply.body(num_posts);
 
 });
 
