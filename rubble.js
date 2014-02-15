@@ -21,8 +21,8 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 	}
 });
 
-simply.body(title_array[0]);
-simply.subtitle(author_array[0]);
+simply.body(title_array[0]+'');
+simply.subtitle(author_array[0]+'');
 
 // var count = parseInt(localStorage.getItem('count')) || 0;
 
