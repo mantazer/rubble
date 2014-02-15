@@ -36,32 +36,34 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 				first_paragraph_array[j] = par;
 			});
 		}
+
+		var count = parseInt(localStorage.getItem('count')) || 0;
+
+		simply.on('singleClick', function(e) {
+
+			console.log(count);
+			console.log(first_paragraph_array);
+
+			if (e.button === 'down') {
+				count++;
+				simply.body(title_array[count]);
+				simply.subtitle(author_array[count]);
+			}
+			else if (e.button === 'up') {
+				count--;
+				simply.body(title_array[count]);
+				simply.subtitle(author_array[count]);
+			}
+			else if (e.button === 'select') {
+				simply.body(first_paragraph_array[count]);
+			}
+			
+			localStorage.setItem('count', count);
+		});
 	}
 });
 
-var count = parseInt(localStorage.getItem('count')) || 0;
 
-simply.on('singleClick', function(e) {
-
-	console.log(count);
-	console.log(first_paragraph_array);
-
-	if (e.button === 'down') {
-		count++;
-		simply.body(title_array[count]);
-		simply.subtitle(author_array[count]);
-	}
-	else if (e.button === 'up') {
-		count--;
-		simply.body(title_array[count]);
-		simply.subtitle(author_array[count]);
-	}
-	else if (e.button === 'select') {
-		simply.body(first_paragraph_array[count]);
-	}
-	
-	localStorage.setItem('count', count);
-});
 
 function grabArticle(article) {
 	fakeDoc = document.createElement('html');
