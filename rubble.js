@@ -2,33 +2,39 @@
 // PennApps 2014
 // 02/14/2014
 
-simply.title('Rubble');
+// TO DO:
 
-var reddit_url = 'http://www.reddit.com/r/worldnews/.json';
+// Enter post via permalink
+	// scrollable
 
-var title_array = new Array();
-var author_array = new Array();
-var url_array = new Array();
+// Return to list
+	// where left off
 
-ajax({ url: reddit_url, type: 'json'}, function(data) {
+	simply.title('Rubble');
 
-	var json = data;
-	var num_posts = json.data.children.length;
+	var reddit_url = 'http://www.reddit.com/r/worldnews/.json';
+
+	var title_array = new Array();
+	var author_array = new Array();
+
+	ajax({ url: reddit_url, type: 'json'}, function(data) {
+
+		var json = data;
+		var num_posts = json.data.children.length;
 
 	// Populate lists of titles and authors
 	for (var i = 0; i < num_posts; i++) {
 		title_array.push(json.data.children[i].data.title);
 		author_array.push(json.data.children[i].data.author);
-		url_array.push(json.data.children[i].data.author);
 	}
 
 });
 
-var count = parseInt(localStorage.getItem('count')) || 0;
+	var count = parseInt(localStorage.getItem('count')) || 0;
 
-simply.on('singleClick', function(e) {
+	simply.on('singleClick', function(e) {
 
-	if (e.button === 'select') {
+		if (e.button === 'select') {
 
 			// get content
 
@@ -53,5 +59,4 @@ simply.on('singleClick', function(e) {
 
 		localStorage.setItem('count', count);
 
-});
-
+	});
