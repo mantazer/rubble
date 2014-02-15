@@ -7,7 +7,7 @@ simply.title('Rubble');
 var redditUrl = 'http://www.reddit.com/.json';
 
 ajax({ url: redditUrl, type: 'json'}, function(json) {
-	simply.subtitle(json.json.kind);
+	simply.subtitle(json.kind);
 });
 
 // var count = parseInt(localStorage.getItem('count')) || 0;
