@@ -6,6 +6,10 @@ simply.title('Rubble');
 
 var count = parseInt(localStorage.getItem('count')) || 0;
 
+$.getJSON( "http://www.reddit.com/.json", function(data) {
+	simply.body(data);
+});
+
 simply.on('singleClick', function(e) {
 	if (e.button === 'down') {
 		simply.subtitle(++count);
