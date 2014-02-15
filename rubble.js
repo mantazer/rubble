@@ -26,13 +26,13 @@ var count = parseInt(localStorage.getItem('count')) || 0;
 
 simply.on('singleClick', function(e) {
 
-	// if (e.button === 'select') {
+	if (e.button === 'select') {
 
-	// }
-	// else if (e.button === 'back') {
+	}
+	else if (e.button === 'back') {
 
-	// }
-	if (e.button === 'down') {
+	}
+	else if (e.button === 'down') {
 		if (count < num_posts) {
 			count++;
 			simply.body(title_array[count]);
