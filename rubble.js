@@ -15,6 +15,7 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 
 	//for (var i = 0; i < num_posts; i++) {
 		post_array.push(json.data.children[4].data.score);
+		simply.body(post_array[0]);
 	//}
 
 
