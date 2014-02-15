@@ -25,11 +25,11 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 
 		url_array.push(post_url);
 		
-		// ajax({ url: url_array[i] }, function (data) {
-		// 	var article = grabArticle(data);
-		// 	var par = article.getElementsByTagName("p")[1].innerText;
-		// 	first_paragraph_array[i] = par;
-		// });
+		ajax({ url: post_url }, function (data) {
+			// var article = grabArticle(data);
+			// var par = article.getElementsByTagName("p")[1].innerText;
+			// first_paragraph_array[i] = par;
+		});
 	}
 });
 
@@ -42,7 +42,7 @@ simply.on('singleClick', function(e) {
 	else if (e.button === 'up') {
 			count--;
 	}
-	simply.body(url_array[count]);
+	simply.body(title_array[count]);
 	simply.subtitle(author_array[count]);
 	localStorage.setItem('count', count);
 });
