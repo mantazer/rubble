@@ -6,8 +6,8 @@ simply.title('Rubble');
 
 var reddit_url = 'http://www.reddit.com/r/worldnews/.json';
 
-var title_array = new Array();
-var author_array = new Array();
+var title_array;
+var author_array;
 
 ajax({ url: reddit_url, type: 'json'}, function(data) {
 
@@ -21,8 +21,8 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 	}
 });
 
-simply.body(title_array[0]+'');
-simply.subtitle(author_array[0]+'');
+simply.body(title_array[0]);
+simply.subtitle(author_array[0]);
 
 // var count = parseInt(localStorage.getItem('count')) || 0;
 
