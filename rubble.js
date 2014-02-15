@@ -6,24 +6,25 @@ simply.title('Rubble');
 
 var reddit_url = 'http://www.reddit.com/.json';
 
-var post_array = new Array(); 
+var title_array = new Array();
+var author_array = new Array();
 
 ajax({ url: reddit_url, type: 'json'}, function(data) {
 	
 	var json = data;
 	var num_posts = json.data.children.length;
 
+	// Populate lists of titles and authors
 	//for (var i = 0; i < num_posts; i++) {
-		post_array.push(json.data.children[0].data.title);
-		simply.body(post_array[0]);
+		title_array.push(json.data.children[0].data.title);
+		author_array.push(json.data.children[0].data.author);
 	//}
-
-
-
 
 });
 
 // var count = parseInt(localStorage.getItem('count')) || 0;
+
+// simply.on()
 
 // simply.on('singleClick', function(e) {
 // 	if (e.button === 'down') {
