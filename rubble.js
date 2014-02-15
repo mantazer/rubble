@@ -6,8 +6,9 @@ simply.title('Rubble');
 
 var count = parseInt(localStorage.getItem('count')) || 0;
 
-ajax( { url: 'http://reddit.com/.json '}, function(date){
-	simply.body('Test');
+ajax( { url: 'http://reddit.com/.json '}, function(data) {
+	var data = JSON.parse(url);
+	simply.body(data.title);
 });
 
 simply.on('singleClick', function(e) {
