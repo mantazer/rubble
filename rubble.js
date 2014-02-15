@@ -12,7 +12,7 @@
 
 	simply.title('Rubble');
 
-	var reddit_url = 'http://www.reddit.com/r/worldnews/.json';
+	var reddit_url = 'http://www.reddit.com/.json';
 
 	var title_array = new Array();
 	var author_array = new Array();
@@ -35,8 +35,6 @@
 	simply.on('singleClick', function(e) {
 
 		if (e.button === 'select') {
-
-			// get content
 
 		}
 		else if (e.button === 'back') {
