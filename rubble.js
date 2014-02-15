@@ -8,7 +8,7 @@ var reddit_url = 'http://www.reddit.com/.json';
 
 var post_array = new Array(); 
 
-ajax({ url: redditUrl, type: 'json'}, function(json) {
+ajax({ url: reddit_url, type: 'json'}, function(json) {
 	
 	simply.body(data.children.length);
 
