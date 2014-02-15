@@ -11,6 +11,7 @@ var author_array = new Array();
 var url_array = new Array();
 var first_paragraph_array = new Array();
 
+// Gets post information
 ajax({ url: reddit_url, type: 'json'}, function(data) {
 
 	var json = data;
@@ -27,6 +28,7 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 	}
 });
 
+// Gets article content
 for (var j = 0; j < url_array.length; j++) {
 	ajax({ url: url_array[j] }, function (data) {
 			var article = grabArticle(data);
