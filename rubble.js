@@ -4,10 +4,14 @@
 
 simply.title('Rubble');
 
-var redditUrl = 'http://www.reddit.com/.json';
+var reddit_url = 'http://www.reddit.com/.json';
+
+var post_array = new Array(); 
 
 ajax({ url: redditUrl, type: 'json'}, function(json) {
-	simply.subtitle(json.kind);
+	
+	simply.body(data.children.length);
+
 });
 
 // var count = parseInt(localStorage.getItem('count')) || 0;
