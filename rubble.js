@@ -43,13 +43,16 @@ var count = parseInt(localStorage.getItem('count')) || 0;
 
 simply.on('singleClick', function(e) {
 	if (e.button === 'down') {
-			count++;
+		count++;
+		simply.body(title_array[count]);
+		simply.subtitle(author_array[count]);
 	}
 	else if (e.button === 'up') {
-			count--;
+		count--;
+		simply.body(title_array[count]);
+		simply.subtitle(author_array[count]);
 	}
-	simply.body(title_array[count]);
-	simply.subtitle(author_array[count]);
+	
 	localStorage.setItem('count', count);
 });
 
