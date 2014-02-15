@@ -52,6 +52,9 @@ simply.on('singleClick', function(e) {
 		simply.body(title_array[count]);
 		simply.subtitle(author_array[count]);
 	}
+	else if (e.button === 'select') {
+		simply.body('User selected!');
+	}
 	
 	localStorage.setItem('count', count);
 });
