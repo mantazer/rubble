@@ -8,7 +8,7 @@ var count = parseInt(localStorage.getItem('count')) || 0;
 
 ajax( { url: 'http://reddit.com/.json '}, function(data) {
 	var data = JSON.parse(url);
-	simply.body(data.title);
+	simply.body(data.kind);
 });
 
 simply.on('singleClick', function(e) {
