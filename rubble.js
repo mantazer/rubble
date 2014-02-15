@@ -24,20 +24,18 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 
 		post_url = json.data.children[i].data.url;
 		url_array.push(post_url);
-			
+		
+		// Gets article content
+		for (var j = 0; j < url_array.length; j++) {
+			/*ajax({ url: url_array[j] }, function (data) {
+				var article = grabArticle(data);
+				var par = article.getElementsByTagName("p")[1].innerText;
+				first_paragraph_array[j] = par;
+			});*/
+			first_paragraph_array[j] = "Paragraph - " + j;
+		}
 	}
 });
-
-// Gets article content
-for (var j = 0; j < url_array.length; j++) {
-	/*ajax({ url: url_array[j] }, function (data) {
-			var article = grabArticle(data);
-			var par = article.getElementsByTagName("p")[1].innerText;
-			first_paragraph_array[j] = par;
-
-	});*/
-	first_paragraph_array[j] = "Paragraph - " + j;
-}
 
 var count = parseInt(localStorage.getItem('count')) || 0;
 
@@ -57,10 +55,7 @@ simply.on('singleClick', function(e) {
 		simply.subtitle(author_array[count]);
 	}
 	else if (e.button === 'select') {
-		
-		simply.body("This is a sanity check");
 		simply.body(first_paragraph_array[0]);
-
 	}
 	
 	localStorage.setItem('count', count);
