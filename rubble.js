@@ -33,7 +33,10 @@ for (var j = 0; j < url_array.length; j++) {
 	ajax({ url: url_array[j] }, function (data) {
 			var article = grabArticle(data);
 			var par = article.getElementsByTagName("p")[1].innerText;
+			console.log(j);
+			console.log(par);
 			first_paragraph_array[i] = par;
+
 	});
 }
 
@@ -51,7 +54,7 @@ simply.on('singleClick', function(e) {
 		simply.subtitle(author_array[count]);
 	}
 	else if (e.button === 'select') {
-		simply.body(first_paragraph_array[2]);
+		simply.body(first_paragraph_array[count]);
 	}
 	
 	localStorage.setItem('count', count);
