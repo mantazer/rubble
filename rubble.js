@@ -22,31 +22,31 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 
 });
 
-// var count = parseInt(localStorage.getItem('count')) || 0;
+var count = parseInt(localStorage.getItem('count')) || 0;
 
-// simply.on('singleClick', function(e) {
+simply.on('singleClick', function(e) {
 
-// 	if (e.button === 'select') {
+	// if (e.button === 'select') {
 
-// 	}
-// 	else if (e.button === 'back') {
+	// }
+	// else if (e.button === 'back') {
 
-// 	}
-// 	else if (e.button === 'down') {
-// 		if (count < num_posts) {
-// 			count++;
-// 			simply.body(title_array[count]);
-// 			simply.subtitle(author_array[count]);
-// 		}
-// 	}
-// 	else if (e.button === 'up') {
-// 		if (count > 0) {
-// 			count--;
-// 			simply.body(title_array[count]);
-// 			simply.subtitle(author_array[count]);
-// 		}
-// 	}
+	// }
+	if (e.button === 'down') {
+		if (count < num_posts) {
+			count++;
+			simply.body(title_array[count]);
+			simply.subtitle(author_array[count]);
+		}
+	}
+	else if (e.button === 'up') {
+		if (count > 0) {
+			count--;
+			simply.body(title_array[count]);
+			simply.subtitle(author_array[count]);
+		}
+	}
 
-// 	localStorage.setItem('count', count);
+	localStorage.setItem('count', count);
 
-// });
+});
