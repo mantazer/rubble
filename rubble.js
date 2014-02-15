@@ -57,7 +57,8 @@ simply.on('singleClick', function(e) {
 	}
 	else if (e.button === 'select') {
 		
-		simply.body(first_paragraph_array[count]);
+		simply.body("This is a sanity check");
+		//simply.body(first_paragraph_array[count]);
 
 	}
 	
