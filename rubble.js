@@ -8,12 +8,11 @@ var count = parseInt(localStorage.getItem('count')) || 0;
 
 simply.on('singleClick', function(e) {
 	if (e.button === 'down') {
-		++count;
+		simply.subtitle(++count);
 	}
 	else if (e.button === 'up') {
-		--count;
+		simply.subtitle(--count);
 	}
 	localStorage.setItem('count', count);
 });
 
-simply.subtitle(count); 
