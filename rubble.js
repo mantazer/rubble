@@ -16,4 +16,4 @@ simply.on('singleClick', function(e) {
 	localStorage.setItem('count', count);
 });
 
-simply.subtitle(count);
+simply.subtitle(count); 
