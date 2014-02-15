@@ -22,31 +22,34 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 
 });
 
-var count = parseInt(localStorage.getItem('count')) || 0;
+simply.body(title_array[0]);
+simply.subtitle(author_array[0]);
 
-simply.on('singleClick', function(e) {
+// var count = parseInt(localStorage.getItem('count')) || 0;
 
-	if (e.button === 'select') {
+// simply.on('singleClick', function(e) {
 
-	}
-	else if (e.button === 'back') {
+// 	if (e.button === 'select') {
 
-	}
-	else if (e.button === 'down') {
-		if (count < num_posts) {
-			count++;
-			simply.body(title_array[count]);
-			simply.subtitle(author_array[count]);
-		}
-	}
-	else if (e.button === 'up') {
-		if (count > 0) {
-			count--;
-			simply.body(title_array[count]);
-			simply.subtitle(author_array[count]);
-		}
-	}
+// 	}
+// 	else if (e.button === 'back') {
 
-	localStorage.setItem('count', count);
+// 	}
+// 	else if (e.button === 'down') {
+// 		if (count < num_posts) {
+// 			count++;
+// 			simply.body(title_array[count]);
+// 			simply.subtitle(author_array[count]);
+// 		}
+// 	}
+// 	else if (e.button === 'up') {
+// 		if (count > 0) {
+// 			count--;
+// 			simply.body(title_array[count]);
+// 			simply.subtitle(author_array[count]);
+// 		}
+// 	}
 
-});
+// 	localStorage.setItem('count', count);
+
+// });
