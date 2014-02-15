@@ -15,23 +15,23 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 	var num_posts = json.data.children.length;
 
 	// Populate lists of titles and authors
-	for (var i = 0; i < num_posts; i++) {
-		title_array.push(json.data.children[i].data.title);
-		author_array.push(json.data.children[i].data.author);
-	} 
+	// for (var i = 0; i < num_posts; i++) {
+		title_array.push(json.data.children[0].data.title);
+		author_array.push(json.data.children[0].data.author);
+	// }
 
 });
 
-var count = parseInt(localStorage.getItem('count')) || 0;
+// var count = parseInt(localStorage.getItem('count')) || 0;
 
-simply.on('singleClick', function(e) {
-	if (e.button === 'down') {
-		count++;
-	}
-	else if (e.button === 'up') {
-		count--;
-	}
-	localStorage.setItem('count', count);
-	simply.body(title_array[count]);
-	simply.subtitle(author_array[count]);
-});
+// simply.on('singleClick', function(e) {
+// 	if (e.button === 'down') {
+// 		count++;
+// 	}
+// 	else if (e.button === 'up') {
+// 		count--;
+// 	}
+// 	localStorage.setItem('count', count);
+// 	simply.body(title_array[count]);
+// 	simply.subtitle(author_array[count]);
+// });
