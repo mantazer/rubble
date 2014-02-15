@@ -22,15 +22,15 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 		author_array.push(json.data.children[i].data.author);
 
 		post_url = json.data.children[i].data.url;
-
 		url_array.push(post_url);
-		
-		ajax({ url: post_url }, function (data) {
+			
+	}
+});
+
+ajax({ url: post_url }, function (data) {
 			// var article = grabArticle(data);
 			// var par = article.getElementsByTagName("p")[1].innerText;
 			// first_paragraph_array[i] = par;
-		});
-	}
 });
 
 var count = parseInt(localStorage.getItem('count')) || 0;
