@@ -31,14 +31,8 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 				var article = grabArticle(data)
 				  , par;
 
-				if(article.getElementsByTagName("p")[1]) {
-					par = article.getElementsByTagName("p")[1].innerText;
-				} else if (article.getElementsByTagName("p")[0]) {
-					par = article.getElementsByTagName("p")[1].innerText;
-				} else {
-					par = "No preview avaiable.";
-				}
-				
+				par = article;
+
 				first_paragraph_array[j] = par;
 			});
 		}
