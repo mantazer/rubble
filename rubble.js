@@ -41,6 +41,10 @@ for (var j = 0; j < url_array.length; j++) {
 var count = parseInt(localStorage.getItem('count')) || 0;
 
 simply.on('singleClick', function(e) {
+
+	console.log(count);
+		console.log(first_paragraph_array);
+
 	if (e.button === 'down') {
 		count++;
 		simply.body(title_array[count]);
@@ -52,8 +56,7 @@ simply.on('singleClick', function(e) {
 		simply.subtitle(author_array[count]);
 	}
 	else if (e.button === 'select') {
-		console.log(count);
-		console.log(first_paragraph_array);
+		
 		simply.body(first_paragraph_array[count]);
 
 	}
