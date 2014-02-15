@@ -32,10 +32,10 @@ simply.on('singleClick', function(e) {
 	if (e.button === 'select') {
 
 			// get content
-			simply.body('User entered');
+			//simply.body('User entered');
 		}
 		else if (e.button === 'back') {
-			simply.body('User returned');
+			//simply.body('User returned');
 		}
 		else if (e.button === 'down') {
 			if (count < num_posts) {
