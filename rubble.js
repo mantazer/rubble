@@ -2,14 +2,6 @@
 // PennApps 2014
 // 02/14/2014
 
-// TO DO:
-
-// Enter post via permalink
-	// scrollable
-
-// Return to list
-	// where left off
-
 simply.title('Rubble');
 
 var reddit_url = 'http://www.reddit.com/r/worldnews/.json';
