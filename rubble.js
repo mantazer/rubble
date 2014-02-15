@@ -27,13 +27,13 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 	}
 });
 
-for (var j = 0; j < url_array.length; j++) {
-	ajax({ url: url_array[j] }, function (data) {
-			// var article = grabArticle(data);
-			// var par = article.getElementsByTagName("p")[1].innerText;
-			// first_paragraph_array[i] = par;
-	});
-}
+// for (var j = 0; j < url_array.length; j++) {
+// 	ajax({ url: url_array[j] }, function (data) {
+// 			// var article = grabArticle(data);
+// 			// var par = article.getElementsByTagName("p")[1].innerText;
+// 			// first_paragraph_array[i] = par;
+// 	});
+// }
 
 
 
