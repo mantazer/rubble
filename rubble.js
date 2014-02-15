@@ -4,27 +4,22 @@
 
 simply.title('Rubble');
 
-var reddit_url = 'http://www.reddit.com/r/worldnews/.json';
-
-var title_array = new Array();
-var author_array = new Array();
 var url_array = new Array();
 var first_paragraph_array = new Array();
 
-// Gets post information
-ajax({ url: reddit_url, type: 'json'}, function(data) {
+getRedditLinks(function(links) {
+	simply.body(links[0].title);
+	simply.subtitle(links[0].author);
+});
 
-	var json = data;
-	var num_posts = json.data.children.length;
 
-	// Populate lists of titles and authors
-	for (var i = 0; i < num_posts; i++) {
-		title_array.push(json.data.children[i].data.title);
-		author_array.push(json.data.children[i].data.author);
-
+	
+		/*
 		post_url = json.data.children[i].data.url;
 		url_array.push(post_url);
 		
+		var done_count = 0;
+
 		// Gets article content
 		for (var j = 0; j < url_array.length; j++) {
 			ajax({ url: url_array[j] }, function (data) {
@@ -34,6 +29,8 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 				par = article;
 
 				first_paragraph_array[j] = par;
+
+				done_count += 1;
 			});
 		}
 
@@ -59,11 +56,24 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 			}
 			
 			localStorage.setItem('count', count);
-		});
-	}
-});
+		});*/
 
 
+function getRedditLinks(cb) {
+	var reddit_url = 'http://www.reddit.com/r/worldnews/.json'
+	  , link_list = [];
+
+	ajax({ url: reddit_url, type: 'json'}, function(json) {
+		for (var i = 0; i < json.data.children.length; i++) {
+          link_list.push({
+          	title: json.data.children[i].data.title,
+          	author: json.data.children[i].data.author
+          })
+		}
+
+		cb(link_list);
+	});
+}
 
 function grabArticle(article) {
 	fakeDoc = document.createElement('html');
