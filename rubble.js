@@ -2,25 +2,17 @@
 // PennApps 2014
 // 02/14/2014
 
-// TO DO:
+simply.title('Rubble');
 
-// Enter post via permalink
-	// scrollable
+var reddit_url = 'http://www.reddit.com/.json';
 
-// Return to list
-	// where left off
+var title_array = new Array();
+var author_array = new Array();
 
-	simply.title('Rubble');
+ajax({ url: reddit_url, type: 'json'}, function(data) {
 
-	var reddit_url = 'http://www.reddit.com/.json';
-
-	var title_array = new Array();
-	var author_array = new Array();
-
-	ajax({ url: reddit_url, type: 'json'}, function(data) {
-
-		var json = data;
-		var num_posts = json.data.children.length;
+	var json = data;
+	var num_posts = json.data.children.length;
 
 	// Populate lists of titles and authors
 	for (var i = 0; i < num_posts; i++) {
@@ -30,31 +22,31 @@
 
 });
 
-	var count = parseInt(localStorage.getItem('count')) || 0;
+var count = parseInt(localStorage.getItem('count')) || 0;
 
-	simply.on('singleClick', function(e) {
+simply.on('singleClick', function(e) {
 
-		if (e.button === 'select') {
+	if (e.button === 'select') {
 
+	}
+	else if (e.button === 'back') {
+
+	}
+	else if (e.button === 'down') {
+		if (count < num_posts) {
+			count++;
+			simply.body(title_array[count]);
+			simply.subtitle(author_array[count]);
 		}
-		else if (e.button === 'back') {
-
+	}
+	else if (e.button === 'up') {
+		if (count > 0) {
+			count--;
+			simply.body(title_array[count]);
+			simply.subtitle(author_array[count]);
 		}
-		else if (e.button === 'down') {
-			if (count < num_posts) {
-				count++;
-				simply.body(title_array[count]);
-				simply.subtitle(author_array[count]);
-			}
-		}
-		else if (e.button === 'up') {
-			if (count > 0) {
-				count--;
-				simply.body(title_array[count]);
-				simply.subtitle(author_array[count]);
-			}
-		}
+	}
 
-		localStorage.setItem('count', count);
+	localStorage.setItem('count', count);
 
-	});
+});
