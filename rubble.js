@@ -37,8 +37,6 @@ for (var j = 0; j < url_array.length; j++) {
 	});
 }
 
-
-
 var count = parseInt(localStorage.getItem('count')) || 0;
 
 simply.on('singleClick', function(e) {
@@ -53,7 +51,7 @@ simply.on('singleClick', function(e) {
 		simply.subtitle(author_array[count]);
 	}
 	else if (e.button === 'select') {
-		simply.body('User selected!');
+		simply.body(first_paragraph_array[count]);
 	}
 	
 	localStorage.setItem('count', count);
