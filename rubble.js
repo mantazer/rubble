@@ -12,7 +12,7 @@ ajax({ url: reddit_url, type: 'json'}, function(json) {
 	
 	var post_array_length = Object.keys(json.data.children.length);
 
-	simply.body(data.children.length());
+	simply.body(post_array_length);
 
 });
 
