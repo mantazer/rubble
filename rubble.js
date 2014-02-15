@@ -20,7 +20,10 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 	for (var i = 0; i < num_posts; i++) {
 		title_array.push(json.data.children[i].data.title);
 		author_array.push(json.data.children[i].data.author);
-		url_array.push(json.data.children[i].data.url);
+
+		post_url = json.data.children[i].data.url;
+
+		url_array.push(post_url);
 		
 		// ajax({ url: url_array[i] }, function (data) {
 		// 	var article = grabArticle(data);
@@ -39,7 +42,7 @@ simply.on('singleClick', function(e) {
 	else if (e.button === 'up') {
 			count--;
 	}
-	simply.body(title_array[count]);
+	simply.body(url_array[count]);
 	simply.subtitle(author_array[count]);
 	localStorage.setItem('count', count);
 });
