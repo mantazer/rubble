@@ -15,15 +15,12 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 	var num_posts = json.data.children.length;
 
 	// Populate lists of titles and authors
-	for (var i = 0; i < num_posts; i++) {
-		title_array.push(json.data.children[i].data.title);
-		author_array.push(json.data.children[i].data.author);
-	}
+	// for (var i = 0; i < num_posts; i++) {
+		title_array.push(json.data.children[0].data.title);
+		author_array.push(json.data.children[0].data.author);
+	// }
 
 });
-
-simply.body(title_array[0]);
-simply.subtitle(author_array[0]);
 
 // var count = parseInt(localStorage.getItem('count')) || 0;
 
