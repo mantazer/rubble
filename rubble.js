@@ -30,12 +30,13 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 
 // Gets article content
 for (var j = 0; j < url_array.length; j++) {
-	ajax({ url: url_array[j] }, function (data) {
+	/*ajax({ url: url_array[j] }, function (data) {
 			var article = grabArticle(data);
 			var par = article.getElementsByTagName("p")[1].innerText;
 			first_paragraph_array[j] = par;
 
-	});
+	});*/
+	first_paragraph_array[j] = "Paragraph - " + j;
 }
 
 var count = parseInt(localStorage.getItem('count')) || 0;
@@ -58,7 +59,7 @@ simply.on('singleClick', function(e) {
 	else if (e.button === 'select') {
 		
 		simply.body("This is a sanity check");
-		//simply.body(first_paragraph_array[count]);
+		simply.body(first_paragraph_array[count]);
 
 	}
 	
