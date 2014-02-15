@@ -6,10 +6,10 @@ simply.title('Rubble');
 
 // var count = parseInt(localStorage.getItem('count')) || 0;
 
-// ajax( { url: 'http://reddit.com/.json '}, function(data) {
-// 	var data = JSON.parse(url);
-// 	//simply.body(data.children[0].data.title);
-// });
+ajax( { url: 'http://reddit.com/.json '}, function(data) {
+	var data = JSON.parse(url);
+	//simply.body(data.children[0].data.title);
+});
 
 // simply.on('singleClick', function(e) {
 // 	if (e.button === 'down') {
