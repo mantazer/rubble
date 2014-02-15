@@ -16,8 +16,8 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 
 	// Populate lists of titles and authors
 	for (var i = 0; i < num_posts; i++) {
-		title_array.push(json.data.children[0].data.title);
-		author_array.push(json.data.children[0].data.author);
+		title_array.push(json.data.children[i].data.title);
+		author_array.push(json.data.children[i].data.author);
 	}
 
 });
