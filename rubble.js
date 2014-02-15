@@ -33,5 +33,4 @@ simply.on('singleClick', function(e) {
 	simply.body(title_array[count]);
 	simply.subtitle(author_array[count]);
 	localStorage.setItem('count', count);
-
 });
