@@ -33,7 +33,7 @@ for (var j = 0; j < url_array.length; j++) {
 	ajax({ url: url_array[j] }, function (data) {
 			var article = grabArticle(data);
 			var par = article.getElementsByTagName("p")[1].innerText;
-			first_paragraph_array[i] = par;
+			first_paragraph_array[j] = par;
 
 	});
 }
@@ -43,7 +43,7 @@ var count = parseInt(localStorage.getItem('count')) || 0;
 simply.on('singleClick', function(e) {
 
 	console.log(count);
-		console.log(first_paragraph_array);
+	console.log(first_paragraph_array);
 
 	if (e.button === 'down') {
 		count++;
