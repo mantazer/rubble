@@ -28,8 +28,17 @@ ajax({ url: reddit_url, type: 'json'}, function(data) {
 		// Gets article content
 		for (var j = 0; j < url_array.length; j++) {
 			ajax({ url: url_array[j] }, function (data) {
-				var article = grabArticle(data);
-				var par = article.getElementsByTagName("p")[1].innerText;
+				var article = grabArticle(data)
+				  , par;
+
+				if(article.getElementsByTagName("p")[1]) {
+					par = article.getElementsByTagName("p")[1].innerText;
+				} else if (article.getElementsByTagName("p")[0]) {
+					par = article.getElementsByTagName("p")[1].innerText;
+				} else {
+					par = "No preview avaiable.";
+				}
+				
 				first_paragraph_array[j] = par;
 			});
 		}
