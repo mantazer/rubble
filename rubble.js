@@ -4,8 +4,10 @@
 
 simply.title('Rubble');
 
-ajax({ url: 'http://www.reddit.com/'}, function(data){
-	var title = data.data.children[0].data.title;
+var redditUrl = 'http://www.reddit.com/.json';
+
+ajax({ url: redditUrl, type: 'json'}, function(json) {
+	simply.subtitle(json.json.kind);
 });
 
 // var count = parseInt(localStorage.getItem('count')) || 0;
