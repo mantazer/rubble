@@ -4,7 +4,7 @@
 
 // Check for empty paragraphs
 
-simply.title('Rubble');
+//simply.title('Rubble');
 var links = [];
 
 getRedditLinks(function(rlinks) {
@@ -35,7 +35,7 @@ function getRedditLinks(cb) {
 }
 
 function renderLinkTitle(link_number) {
-	simply.body(links[link_number].title);
+	simply.subtitle(links[link_number].title);
 	//simply.subtitle(links[link_number].author);
 	simply.scrollable(false);
 }
