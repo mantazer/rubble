@@ -35,7 +35,7 @@ function getRedditLinks(cb) {
 }
 
 function renderLinkTitle(link_number) {
-	simply.subtitle(links[link_number].title);
+	simply.body(links[link_number].title);
 	//simply.subtitle(links[link_number].author);
 	simply.scrollable(false);
 }
