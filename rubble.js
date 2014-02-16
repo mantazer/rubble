@@ -70,7 +70,7 @@ function renderInterface(e) {
 	} else if (e.button === 'up' && current_page - 1 > 0) {
 		renderLinkTitle(current_page);
 		localStorage.setItem('current_page', current_page - 1);
-	} else if (e.button === 'up' && hasEntered === true && current_page + 1 < links.length) {
+	} else if (e.button === 'select' && hasEntered === true) {
 		simply.body('Pocketed');
 	} else if (e.button === 'select') {
 		renderArticle(current_page);
