@@ -51,7 +51,7 @@ function renderArticle(link_number) {
 
 			links[link_number].first_paragraph = article.getElementsByTagName("p")[1].innerText;;
 			simply.body(link.first_paragraph);
-			simply.scrollable(true);
+			//simply.scrollable(true);
 		});
 	}
 }
@@ -67,6 +67,7 @@ function renderInterface(e) {
 		localStorage.setItem('current_page', current_page - 1);
 	} else if (e.button === 'select') {
 		renderArticle(current_page);
+		simply.scrollable(true);
 	} else if (e.button === 'back') {
 		renderLinkTitle(current_page);
 		simply.scrollable(false);
