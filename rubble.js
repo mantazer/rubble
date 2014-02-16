@@ -4,16 +4,16 @@
 
 simply.title('Rubble');
 var links = [];
-var hasRendered = false;
 
-getRedditLinks(function(pending_links) {
-	
-	links = pending_links;
-    localStorage.setItem('current_page', 0);
+getRedditLinks(function(rlinks) {
+	links = rlinks;
+
+	localStorage.setItem('current_page', 0);
 	renderLinkTitle(0);
 
 	simply.on('singleClick', renderInterface);
 });
+
 
 	
 		/*
@@ -69,10 +69,8 @@ function getRedditLinks(cb) {
 		for (var i = 0; i < json.data.children.length; i++) {
           link_list.push({
           	title: json.data.children[i].data.title,
-          	author: json.data.children[i].data.author,
-          	url: json.data.children[i].data.url,
-          	crawled: false
-          });
+          	author: json.data.children[i].data.author
+          })
 		}
 
 		cb(link_list);
@@ -84,21 +82,16 @@ function renderLinkTitle(link_number) {
 	simply.subtitle(links[link_number].author);
 }
 
-function renderArticle(link_number) {
-	simply.body(links[link_number].first_paragraph);
-}
-
 function renderInterface(e) {
 	var current_page = parseInt(localStorage.getItem('current_page'));
 
-	if (e.button === 'up' && current_page - 1 > 0) {
-		renderLinkTitle(current_page - 1);
-		localStorage.setItem('current_page', current_page - 1);
-	} else if (e.button === 'down' && current_page + 1 < links.length) {
+	if (e.button === 'down' && current_page + 1 < links.length) {
 		renderLinkTitle(current_page + 1);
 		localStorage.setItem('current_page', current_page + 1);
+	} else if (e.button === 'up' && current_page - 1 > 0) {
+		renderLinkTitle(current_page - 1);
+		localStorage.setItem('current_page', current_page - 1);
 	} else if (e.button === 'select') {
-		renderArticle(current_page);
 	}
 }
 
