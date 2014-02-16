@@ -9,9 +9,9 @@ var hasRendered = false;
 getRedditLinks(function(pending_links) {
 	crawlPages(pending_links, function(crawled_page) {
 		links.push(crawled_page);
-		if(links.length > 0 && !hasRendered) {
+		if(!hasRendered) {
 			hasRendered = true;
-			
+
 			localStorage.setItem('current_page', 0);
 			renderLinkTitle(0);
 
@@ -86,13 +86,9 @@ function getRedditLinks(cb) {
 
 function crawlPages(links_list, cb) {
 	for(var i = 0; i < links_list; i++) {
-		ajax({ url: links_list[i] }, function (data) {
-			var article = grabArticle(data);
-			var link = links_list[i];
-
-			link.first_paragraph = article.getElementsByTagName("p")[1].innerText;
-			cb(link);
-		});
+		var link = links_list[i];
+		link.first_paragraph = "foo";
+		cb(link);
 	}
 }
 
