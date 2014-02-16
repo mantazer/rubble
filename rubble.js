@@ -74,9 +74,11 @@ function renderInterface(e) {
 		simply.body('Pocketed');
 	} else if (e.button === 'select') {
 		renderArticle(current_page);
+		hasEntered = true;
 		//simply.scrollable(true);
 	} else if (e.button === 'back') {
 		renderLinkTitle(current_page);
+		hasEntered = false;
 		//simply.scrollable(false);
 	}
 }
