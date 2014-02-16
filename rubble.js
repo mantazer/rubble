@@ -6,7 +6,7 @@
 
 // simply.title('Rubble');
 simply.title('');
-simply.subtitle('');
+simply.subtitle('/r/worldnews');
 var links = [];
 var hasEntered = false;
 
@@ -18,7 +18,6 @@ getRedditLinks(function(rlinks) {
 
 	simply.on('singleClick', renderInterface);
 });
-
 
 function getRedditLinks(cb) {
 	var reddit_url = 'http://www.reddit.com/r/worldnews/.json'
@@ -71,15 +70,13 @@ function renderInterface(e) {
 		renderLinkTitle(current_page);
 		localStorage.setItem('current_page', current_page - 1);
 	} else if (e.button === 'select' && hasEntered === true) {
-		simply.body('Pocketed');
+		simply.body('Saved to Pocket');
 	} else if (e.button === 'select') {
 		renderArticle(current_page);
 		hasEntered = true;
-		//simply.scrollable(true);
 	} else if (e.button === 'back') {
 		renderLinkTitle(current_page);
 		hasEntered = false;
-		//simply.scrollable(false);
 	}
 }
 
