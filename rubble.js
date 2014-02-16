@@ -65,10 +65,10 @@ function renderInterface(e) {
 	var current_page = parseInt(localStorage.getItem('current_page'));
 
 	if (e.button === 'down' && current_page + 1 < links.length) {
-		renderLinkTitle(current_page + 1);
+		renderLinkTitle(current_page);
 		localStorage.setItem('current_page', current_page + 1);
 	} else if (e.button === 'up' && current_page - 1 > 0) {
-		renderLinkTitle(current_page - 1);
+		renderLinkTitle(current_page);
 		localStorage.setItem('current_page', current_page - 1);
 	} else if (e.button === 'up' && hasEntered === true && current_page + 1 < links.length) {
 		simply.body('Pocketed');
