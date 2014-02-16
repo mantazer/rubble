@@ -82,7 +82,7 @@ function renderLinkTitle(link_number) {
 	simply.subtitle(links[link_number].author);
 }
 
-function renderInterface() {
+function renderInterface(e) {
 	var current_page = parseInt(localStorage.getItem('current_page'));
 
 	if (e.button === 'down' && current_page - 1 > 0) {
