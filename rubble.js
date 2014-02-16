@@ -3,7 +3,6 @@
 // 02/14/2014
 
 // Check for empty paragraphs
-// Back button
 
 simply.title('Rubble');
 var links = [];
@@ -16,7 +15,6 @@ getRedditLinks(function(rlinks) {
 
 	simply.on('singleClick', renderInterface);
 });
-
 
 function getRedditLinks(cb) {
 	var reddit_url = 'http://www.reddit.com/r/worldnews/.json'
@@ -36,8 +34,8 @@ function getRedditLinks(cb) {
 }
 
 function renderLinkTitle(link_number) {
-	simply.body(links[link_number].title);
-	simply.subtitle(links[link_number].author);
+	//simply.body(links[link_number].title);
+	simply.body(links[link_number].author);
 	simply.scrollable(false);
 }
 
@@ -50,7 +48,7 @@ function renderArticle(link_number) {
 		ajax({ url: link.url }, function (data) {
 			var article = grabArticle(data);
 
-			links[link_number].first_paragraph = article.getElementsByTagName("p")[1].innerText;;
+			links[link_number].first_paragraph = article.getElementsByTagName("p")[0].innerText;;
 			simply.body(link.first_paragraph);
 			simply.scrollable(true);
 		});
