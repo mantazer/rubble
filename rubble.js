@@ -58,7 +58,7 @@ function renderArticle(link_number) {
 	}
 }
 
-function renderInterface(e) {
+function renderInterface(e) { 
 	var current_page = parseInt(localStorage.getItem('current_page'));
 
 	if (e.button === 'down' && current_page + 1 < links.length) {
