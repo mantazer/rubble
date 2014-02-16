@@ -4,11 +4,14 @@
 
 simply.title('Rubble');
 var links = [];
+var hasRendered = false;
 
 getRedditLinks(function(pending_links) {
 	crawlPages(pending_links, function(crawled_page) {
 		links.push(crawled_page);
-		if(links.length == 1) {
+		if(links.length > 0 && !hasRendered) {
+			hasRendered = true;
+			
 			localStorage.setItem('current_page', 0);
 			renderLinkTitle(0);
 
@@ -86,7 +89,7 @@ function crawlPages(links_list, cb) {
 		ajax({ url: links_list[i] }, function (data) {
 			var article = grabArticle(data);
 			var link = links_list[i];
-			
+
 			link.first_paragraph = article.getElementsByTagName("p")[1].innerText;
 			cb(link);
 		});
