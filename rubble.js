@@ -3,13 +3,12 @@
 // 02/14/2014
 
 simply.title('Rubble');
+var links = [];
 
-var url_array = new Array();
-var first_paragraph_array = new Array();
-
-getRedditLinks(function(links) {
+getRedditLinks(function(rlinks) {
+	links = rlinks;
+	
 	localStorage.setItem('current_page', 0);
-	localStorage.setItem('links', links);
 	renderLinkTitle(0);
 
 	simply.on('singleClick', renderInterface);
@@ -79,7 +78,6 @@ function getRedditLinks(cb) {
 }
 
 function renderLinkTitle(link_number) {
-	var links = localStorage.getItem('links')
 	simply.body(links[link_number].title);
 	simply.subtitle(links[link_number].author);
 }
