@@ -8,15 +8,12 @@ var hasRendered = false;
 
 getRedditLinks(function(pending_links) {
 	
-			hasRendered = true;
+	links = pending_links;
+    localStorage.setItem('current_page', 0);
+	renderLinkTitle(0);
 
-			localStorage.setItem('current_page', 0);
-			renderLinkTitle(0);
-
-			simply.on('singleClick', renderInterface);
-
+	simply.on('singleClick', renderInterface);
 });
-
 
 	
 		/*
@@ -73,20 +70,13 @@ function getRedditLinks(cb) {
           link_list.push({
           	title: json.data.children[i].data.title,
           	author: json.data.children[i].data.author,
-          	url: json.data.children[i].data.url
+          	url: json.data.children[i].data.url,
+          	crawled: false
           });
 		}
 
 		cb(link_list);
 	});
-}
-
-function crawlPages(links_list, cb) {
-	for(var i = 0; i < links_list; i++) {
-		var link = links_list[i];
-		link.first_paragraph = "foo";
-		cb(link);
-	}
 }
 
 function renderLinkTitle(link_number) {
