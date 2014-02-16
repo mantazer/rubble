@@ -69,7 +69,8 @@ function getRedditLinks(cb) {
 		for (var i = 0; i < json.data.children.length; i++) {
           link_list.push({
           	title: json.data.children[i].data.title,
-          	author: json.data.children[i].data.author
+          	author: json.data.children[i].data.author,
+          	url: json.data.children[i].data.url
           })
 		}
 
@@ -82,6 +83,21 @@ function renderLinkTitle(link_number) {
 	simply.subtitle(links[link_number].author);
 }
 
+function renderArticle(link_number) {
+	var link = links[link_number];
+
+	if(link.first_paragraph) {
+		simply.body(link.first_paragraph);
+	} else {
+		ajax({ url: link.url }, function (data) {
+			var article = grabArticle(data);
+
+			links[link_number].first_paragraph = "foo";
+			simply.body(link.first_paragraph);
+		});
+	}
+}
+
 function renderInterface(e) {
 	var current_page = parseInt(localStorage.getItem('current_page'));
 
@@ -92,6 +108,7 @@ function renderInterface(e) {
 		renderLinkTitle(current_page - 1);
 		localStorage.setItem('current_page', current_page - 1);
 	} else if (e.button === 'select') {
+		renderArticle(current_page);
 	}
 }
 
