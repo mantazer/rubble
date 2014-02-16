@@ -15,52 +15,6 @@ getRedditLinks(function(rlinks) {
 });
 
 
-	
-		/*
-		post_url = json.data.children[i].data.url;
-		url_array.push(post_url);
-		
-		var done_count = 0;
-
-		// Gets article content
-		for (var j = 0; j < url_array.length; j++) {
-			ajax({ url: url_array[j] }, function (data) {
-				var article = grabArticle(data)
-				  , par;
-
-				par = article;
-
-				first_paragraph_array[j] = par;
-
-				done_count += 1;
-			});
-		}
-
-		var count = parseInt(localStorage.getItem('count')) || 0;
-
-		simply.on('singleClick', function(e) {
-
-			console.log(count);
-			console.log(first_paragraph_array);
-
-			if (e.button === 'down') {
-				count++;
-				simply.body(title_array[count]);
-				simply.subtitle(author_array[count]);
-			}
-			else if (e.button === 'up') {
-				count--;
-				simply.body(title_array[count]);
-				simply.subtitle(author_array[count]);
-			}
-			else if (e.button === 'select') {
-				simply.body(first_paragraph_array[count]);
-			}
-			
-			localStorage.setItem('count', count);
-		});*/
-
-
 function getRedditLinks(cb) {
 	var reddit_url = 'http://www.reddit.com/r/worldnews/.json'
 	  , link_list = [];
