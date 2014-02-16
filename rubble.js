@@ -48,6 +48,7 @@ function renderArticle(link_number) {
 
 			links[link_number].first_paragraph = article.getElementsByTagName("p")[1].innerText;;
 			simply.body(link.first_paragraph);
+			simply.scrollable(true);
 		});
 	}
 }
