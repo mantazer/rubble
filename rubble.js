@@ -2,9 +2,11 @@
 // PennApps 2014
 // 02/14/2014
 
-// Check for empty paragraphs
+// TO DO:
+// Update Status Bar
+// Integrate Pocket
+// Subreddit Selection
 
-// simply.title('Rubble');
 simply.title('');
 simply.subtitle('/r/worldnews');
 var links = [];
