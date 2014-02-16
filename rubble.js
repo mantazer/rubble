@@ -2,6 +2,9 @@
 // PennApps 2014
 // 02/14/2014
 
+// Check for empty paragraphs
+// Back button
+
 simply.title('Rubble');
 var links = [];
 
@@ -66,6 +69,7 @@ function renderInterface(e) {
 		renderArticle(current_page);
 	} else if (e.button === 'back') {
 		renderLinkTitle(current_page);
+		simply.scrollable(false);
 	}
 }
 
