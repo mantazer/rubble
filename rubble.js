@@ -49,7 +49,7 @@ function renderArticle(link_number) {
 		ajax({ url: link.url }, function (data) {
 			var article = grabArticle(data);
 
-			links[link_number].first_paragraph = article.getElementsByTagName("p")[0].innerText;;
+			links[link_number].first_paragraph = article.getElementsByTagName("p")[1].innerText;;
 			simply.body(link.first_paragraph);
 			simply.scrollable(true);
 		});
