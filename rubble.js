@@ -64,6 +64,8 @@ function renderInterface(e) {
 		localStorage.setItem('current_page', current_page - 1);
 	} else if (e.button === 'select') {
 		renderArticle(current_page);
+	} else if (e.button === 'back') {
+		renderLinkTitle(current_page);
 	}
 }
 
