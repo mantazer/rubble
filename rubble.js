@@ -69,8 +69,11 @@ function renderInterface(e) {
 	} else if (e.button === 'up' && current_page - 1 > 0) {
 		renderLinkTitle(current_page);
 		localStorage.setItem('current_page', current_page - 1);
-	} else if (e.button === 'select' && hasEntered === true) {
-		simply.body('Saved to Pocket');
+	// } else if (e.button === 'select' && hasEntered === true) {
+	// 	simply.body('Saved to Pocket');
+
+	// 	// Function to POST to Pocket not yet implemented
+
 	} else if (e.button === 'select') {
 		renderArticle(current_page);
 		hasEntered = true;
