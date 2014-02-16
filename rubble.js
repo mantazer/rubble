@@ -4,7 +4,9 @@
 
 // Check for empty paragraphs
 
-//simply.title('Rubble');
+// simply.title('Rubble');
+simply.title('');
+simply.subtitle('');
 var links = [];
 
 getRedditLinks(function(rlinks) {
@@ -59,10 +61,10 @@ function renderArticle(link_number) {
 function renderInterface(e) {
 	var current_page = parseInt(localStorage.getItem('current_page'));
 
-	if (e.button === 'down' && current_page + 1 < links.length) {
+	if (e.button === 'down' && current_page < links.length) {
 		renderLinkTitle(current_page + 1);
 		localStorage.setItem('current_page', current_page + 1);
-	} else if (e.button === 'up' && current_page - 1 > 0) {
+	} else if (e.button === 'up' && current_page > 0) {
 		renderLinkTitle(current_page - 1);
 		localStorage.setItem('current_page', current_page - 1);
 	} else if (e.button === 'select') {
