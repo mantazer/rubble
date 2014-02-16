@@ -5,13 +5,16 @@
 simply.title('Rubble');
 var links = [];
 
-getRedditLinks(function(rlinks) {
-	links = rlinks;
+getRedditLinks(function(pending_links) {
+	crawlPages(pending_links, function(crawled_page) {
+		links.push(crawled_page);
+		if(links.length == 1) {
+			localStorage.setItem('current_page', 0);
+			renderLinkTitle(0);
 
-	localStorage.setItem('current_page', 0);
-	renderLinkTitle(0);
-
-	simply.on('singleClick', renderInterface);
+			simply.on('singleClick', renderInterface);
+		}
+	});
 });
 
 
@@ -69,12 +72,25 @@ function getRedditLinks(cb) {
 		for (var i = 0; i < json.data.children.length; i++) {
           link_list.push({
           	title: json.data.children[i].data.title,
-          	author: json.data.children[i].data.author
-          })
+          	author: json.data.children[i].data.author,
+          	url: json.data.children[i].data.url
+          });
 		}
 
 		cb(link_list);
 	});
+}
+
+function crawlPages(links_list, cb) {
+	for(var i = 0; i < links_list; i++) {
+		ajax({ url: links_list[i] }, function (data) {
+			var article = grabArticle(data);
+			var link = links_list[i];
+			
+			link.first_paragraph = article.getElementsByTagName("p")[1].innerText;
+			cb(link);
+		});
+	}
 }
 
 function renderLinkTitle(link_number) {
@@ -82,16 +98,21 @@ function renderLinkTitle(link_number) {
 	simply.subtitle(links[link_number].author);
 }
 
+function renderArticle(link_number) {
+	simply.body(links[link_number].first_paragraph);
+}
+
 function renderInterface(e) {
 	var current_page = parseInt(localStorage.getItem('current_page'));
 
-	if (e.button === 'down' && current_page - 1 > 0) {
+	if (e.button === 'up' && current_page - 1 > 0) {
 		renderLinkTitle(current_page - 1);
 		localStorage.setItem('current_page', current_page - 1);
-	} else if (e.button === 'up' && current_page + 1 < links.length) {
+	} else if (e.button === 'down' && current_page + 1 < links.length) {
 		renderLinkTitle(current_page + 1);
 		localStorage.setItem('current_page', current_page + 1);
 	} else if (e.button === 'select') {
+		renderArticle(current_page);
 	}
 }
 
