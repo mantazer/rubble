@@ -4,7 +4,8 @@
 
 // Check for empty paragraphs
 
-//simply.title('Rubble');
+simply.title('');
+simplt.subtitle('');
 var links = [];
 
 getRedditLinks(function(rlinks) {
