@@ -9,6 +9,7 @@ var hasRendered = false;
 getRedditLinks(function(pending_links) {
 	crawlPages(pending_links, function(crawled_page) {
 		links.push(crawled_page);
+
 		if(!hasRendered) {
 			hasRendered = true;
 
