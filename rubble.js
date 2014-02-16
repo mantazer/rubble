@@ -8,6 +8,7 @@
 simply.title('');
 simply.subtitle('');
 var links = [];
+var hasEntered = false;
 
 getRedditLinks(function(rlinks) {
 	links = rlinks;
@@ -39,6 +40,7 @@ function getRedditLinks(cb) {
 function renderLinkTitle(link_number) {
 	simply.body(links[link_number].title);
 	//simply.subtitle(links[link_number].author);
+	hasEntered = false;
 	simply.scrollable(false);
 }
 
@@ -53,6 +55,7 @@ function renderArticle(link_number) {
 
 			links[link_number].first_paragraph = article.getElementsByTagName("p")[1].innerText;;
 			simply.body(link.first_paragraph);
+			hasEntered = true;
 			simply.scrollable(true);
 		});
 	}
@@ -67,6 +70,8 @@ function renderInterface(e) {
 	} else if (e.button === 'up' && current_page - 1 > 0) {
 		renderLinkTitle(current_page - 1);
 		localStorage.setItem('current_page', current_page - 1);
+	} else if (e.button === 'up' && hasEntered === true && current_page + 1 < links.length) {
+		simply.body('Pocketed');
 	} else if (e.button === 'select') {
 		renderArticle(current_page);
 		//simply.scrollable(true);
