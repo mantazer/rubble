@@ -7,18 +7,14 @@ var links = [];
 var hasRendered = false;
 
 getRedditLinks(function(pending_links) {
-	crawlPages(pending_links, function(crawled_page) {
-		links.push(crawled_page);
-
-		if(!hasRendered) {
+	
 			hasRendered = true;
 
 			localStorage.setItem('current_page', 0);
 			renderLinkTitle(0);
 
 			simply.on('singleClick', renderInterface);
-		}
-	});
+
 });
 
 
