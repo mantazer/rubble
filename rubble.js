@@ -16,6 +16,7 @@ getRedditLinks(function(rlinks) {
 	simply.on('singleClick', renderInterface);
 });
 
+
 function getRedditLinks(cb) {
 	var reddit_url = 'http://www.reddit.com/r/worldnews/.json'
 	  , link_list = [];
@@ -34,8 +35,8 @@ function getRedditLinks(cb) {
 }
 
 function renderLinkTitle(link_number) {
-	//simply.body(links[link_number].title);
-	simply.body(links[link_number].author);
+	simply.subtitle(links[link_number].title);
+	//simply.subtitle(links[link_number].author);
 	simply.scrollable(false);
 }
 
